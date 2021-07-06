@@ -1,31 +1,25 @@
-import { ErrorBoundary, Header, PageLayout, SideNav } from '@components';
-import { CssBaseline, ToastContainer } from '@medly-components/core';
-import Routes from '@routes';
-import { store } from '@store';
-import { defaultTheme } from '@theme';
-import React from 'react';
-import { Provider } from 'react-redux';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
+import './App.css'
+import Login from './pages/Login/Login'
+import { Route, Switch } from 'react-router-dom'
+import Signup from './pages/Signup/Signup'
+import Leaderborad from './pages/Leaderboard'
 
-const App: React.SFC = () => (
-    <Provider store={store}>
-        <ThemeProvider theme={defaultTheme}>
-            <>
-                <CssBaseline />
-                <Router>
-                    <ErrorBoundary>
-                        <PageLayout>
-                            <ToastContainer position="top-end" />
-                            <SideNav />
-                            <Header />
-                            <Routes />
-                        </PageLayout>
-                    </ErrorBoundary>
-                </Router>
-            </>
-        </ThemeProvider>
-    </Provider>
-);
+function App() {
+  return (
+    <div className='App'>
+      <Switch>
+        <Route path='/' exact>
+          <Leaderborad />
+        </Route>
+        <Route path='/Signup'>
+          <Signup />
+        </Route>
+        <Route path='/Login'>
+          <Login />
+        </Route>
+      </Switch>
+    </div>
+  )
+}
 
-export default App;
+export default App

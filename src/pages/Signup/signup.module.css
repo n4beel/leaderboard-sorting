@@ -1,0 +1,25 @@
+.signup {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register {
+  margin-top: 50px;
+  margin: auto;
+  width: 660px;
+  text-align: left;
+}
+
+.left {
+  display: flex;
+}
+
+.margin {
+  margin-top: 6px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
