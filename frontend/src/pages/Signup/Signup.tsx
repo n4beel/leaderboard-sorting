@@ -14,6 +14,7 @@ const Signup = () => {
     if (token) {
       history.push('/')
     }
+    // eslint-disable-next-line
   }, [])
 
   const singupHandler = (e: any) => {
@@ -62,7 +63,7 @@ const Signup = () => {
             <div className={classes.margin}>
               <Link to='/'>
                 <p className='forgot-password '>
-                  <a>Cancel</a>
+                  Cancel
                 </p>
               </Link>
             </div>

@@ -23,6 +23,7 @@ const Leaderborad = () => {
         setLeaderboardData(data)
       }
     })()
+    // eslint-disable-next-line
   }, [])
 
   const logoutHandler = () => {

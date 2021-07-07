@@ -14,6 +14,7 @@ const Login = () => {
     if (token) {
       history.push('/')
     }
+    // eslint-disable-next-line
   }, [])
 
   const loginHandler = async (e: any) => {
@@ -62,7 +63,7 @@ const Login = () => {
             <div className={classes.margin}>
               <Link to='/Signup'>
                 <p className='forgot-password '>
-                  <a href='#'>Register</a>
+                  Register
                 </p>
               </Link>
             </div>

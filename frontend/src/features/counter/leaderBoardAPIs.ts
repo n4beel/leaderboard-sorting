@@ -79,13 +79,6 @@ export async function signup(signup: Signup, onSuccess: any) {
   return res;
 }
 
-interface Database {
-  login: string,
-  password: string
-}
-
-
-
 export async function dataleaderboard(token: string) {
   console.log("api started", login)
   let res: any;
