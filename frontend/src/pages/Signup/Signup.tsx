@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react'
 import classes from './signup.module.css'
 import { Link, useHistory } from 'react-router-dom'
 import { signup } from '../../features/counter/leaderBoardAPIs'
+import PasswordStrengthBar from 'react-password-strength-bar';
 
 const Signup = () => {
   const history = useHistory()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [score, setScore] = useState(0)
 
   useEffect(() => {
     let login = window.localStorage.getItem('login')
@@ -49,11 +51,13 @@ const Signup = () => {
               className='form-control'
               placeholder='Enter password'
             />
+            <PasswordStrengthBar onChangeScore={(score) => setScore(score)} password={password} />
+
           </div>
           <div className={classes.left}>
             <div>
               <button
-                disabled={!password || !email}
+                disabled={score < 2 || !email}
                 type='submit'
                 className='btn btn-primary '
               >

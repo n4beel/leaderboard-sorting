@@ -11,7 +11,7 @@ module.exports = () => {
             lastName: faker.name.lastName(),
             login: faker.internet.email(),
             score: faker.datatype.number(),
-            age: faker.datatype.number()
+            age: faker.datatype.number({ min: 20, max: 80 })
         })
     }
     return lodash.shuffle(leaderBoard);
