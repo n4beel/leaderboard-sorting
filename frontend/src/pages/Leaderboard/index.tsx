@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import BootstrapTable, { SortOrder } from 'react-bootstrap-table-next'
+import BootstrapTable from 'react-bootstrap-table-next'
 import { useHistory } from 'react-router-dom'
 import classes from './index.module.css'
 import { dataleaderboard } from '../../features/counter/leaderBoardAPIs'
-
-interface SortedArray {
-  dataField: any
-  order: SortOrder
-}
 
 const Leaderborad = () => {
   const history = useHistory()
