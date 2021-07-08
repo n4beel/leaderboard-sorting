@@ -4,11 +4,11 @@ interface Login {
   password: string
 }
 
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'http://localhost:3000'
 
 export async function login(login: Login, onSuccess: any) {
   console.log("api started", login)
-  let res: any;
+  let res: any
   try {
     res = await fetch(`${BASE_URL}/users/login`, {
       method: 'POST',
@@ -37,7 +37,7 @@ export async function login(login: Login, onSuccess: any) {
 
   }
 
-  return res;
+  return res
 }
 
 interface Signup {
@@ -49,7 +49,7 @@ interface Signup {
 
 export async function signup(signup: Signup, onSuccess: any) {
   console.log("api started", login)
-  let res: any;
+  let res: any
   try {
     res = await fetch(`${BASE_URL}/users/sign-up`, {
       method: 'POST',
@@ -76,12 +76,12 @@ export async function signup(signup: Signup, onSuccess: any) {
 
   }
 
-  return res;
+  return res
 }
 
 export async function dataleaderboard(token: string) {
   console.log("api started", login)
-  let res: any;
+  let res: any
   try {
     res = await fetch(`${BASE_URL}/users/leaderboard`, {
       headers: {
@@ -103,5 +103,5 @@ export async function dataleaderboard(token: string) {
 
   }
 
-  return res;
+  return res
 }

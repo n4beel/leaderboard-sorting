@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import classes from './signup.module.css'
 import { Link, useHistory } from 'react-router-dom'
 import { signup } from '../../features/counter/leaderBoardAPIs'
-import PasswordStrengthBar from 'react-password-strength-bar';
+import PasswordStrengthBar from 'react-password-strength-bar'
 
 const Signup = () => {
   const history = useHistory()

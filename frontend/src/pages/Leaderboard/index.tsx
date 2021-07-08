@@ -10,7 +10,7 @@ const Leaderborad = () => {
   const [leaderboardData, setLeaderboardData] = useState<any[]>()
 
   useEffect(() => {
-    ; (async () => {
+    (async () => {
       let login = window.localStorage.getItem('login')
       let token = login ? JSON.parse(login).token : ''
       console.log(token)
