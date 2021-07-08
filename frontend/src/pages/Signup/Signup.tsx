@@ -8,7 +8,10 @@ const Signup = () => {
   const history = useHistory()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [dupPassword, setDupPassword] = useState('')
   const [score, setScore] = useState(0)
+
+  const [passError, setPassError] = useState('')
 
   useEffect(() => {
     let login = window.localStorage.getItem('login')
@@ -25,6 +28,20 @@ const Signup = () => {
     signup({ login: email, password }, () => {
       history.push('login')
     })
+  }
+
+  const handleChangeScore = (score: any) => {
+    if (score < 2 && password.length > 3) {
+      setPassError("Try adding special characters or numbers in password to make it strong")
+    }
+    else {
+      setPassError("")
+    }
+    setScore(score)
+  }
+
+  const onDupPassChange = (e: any) => {
+    setDupPassword(e.target.value)
   }
 
   return (
@@ -49,15 +66,26 @@ const Signup = () => {
               onChange={(e) => setPassword(e.target.value)}
               type='password'
               className='form-control'
-              placeholder='Enter password'
+              placeholder='password'
             />
-            <PasswordStrengthBar onChangeScore={(score) => setScore(score)} password={password} />
+            <small className="form-text text-muted">{passError}</small>
+            <PasswordStrengthBar onChangeScore={handleChangeScore} password={password} />
 
+          </div>
+          <div className='form-group'>
+            <label>Re-enter Password</label>
+            <input
+              onChange={onDupPassChange}
+              type='password'
+              className='form-control'
+              placeholder='password'
+            />
+            <small className="form-text text-muted">{password !== dupPassword && dupPassword.length > 0 ? "Passwords do not match" : ""}</small>
           </div>
           <div className={classes.left}>
             <div>
               <button
-                disabled={score < 2 || !email}
+                disabled={score < 2 || !email || password !== dupPassword}
                 type='submit'
                 className='btn btn-primary '
               >
